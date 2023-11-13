@@ -3,6 +3,7 @@ import User from "../models/User.js";
 
 const login = async (req, res) => {
     try {
+        console.log("in login")
         const { username, password } = req.body;
 
         if (!username || !password) {
@@ -15,7 +16,7 @@ const login = async (req, res) => {
             username: username,
             password: password,
         });
-
+        console.log("user: ", user)
         if (!user) {
             const error = { error: "Invalid username or password" };
             console.log(JSON.stringify(error));
