@@ -32,7 +32,7 @@ const authenticationMiddleware = (req, res, next) => {
 
     const tokenCookie = cookies
         .split(";")
-        .find((cookie) => cookie.trim().startsWith("jwtToken="));
+        .find((cookie) => cookie.trim().startsWith("token="));
 
     if (!tokenCookie) {
         throw next(new UnauthenticatedError("No token cookie provided"));
